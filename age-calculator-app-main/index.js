@@ -6,42 +6,58 @@ const monthResult = document.getElementById('month_result');
 const yearResult = document.getElementById('year_result');
 const btn = document.querySelector('button');
 
-btn.addEventListener('click', () => {
-    function calculateAge(birthDate) {
-        const today = new Date();
-        const birth = new Date(birthDate);
-    
-        let years = today.getFullYear() - birth.getFullYear();
-        let months = today.getMonth() - birth.getMonth();
-        let days = today.getDate() - birth.getDate();
-    
-        // Adjust for negative days or months
-        if (days < 0) {
-            months--;
-            const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-            days += previousMonth;
-        }
-    
-        if (months < 0) {
-            years--;
-            months += 12;
-        }
 
-        return { years, months, days };
-    }
+btn.addEventListener('click', () => {
     
     // Collecting the date values from the input fields
     const day = div.value;  
     const month = say.value;   
-    const year = ram.value;    
-    
+    const year = ram.value; 
     // Construct a valid date string in the format "YYYY-MM-DD"
     const birthDate = `${year}-${month}-${day}`;
+      
+    function calculateAge(birthDate) {
+        const today = new Date();
+        const birth = new Date(birthDate);
+        console.log(today);
+        console.log(birth);
+        let dateCalc =  Number(today) - Number(birth)
+        let numYear = Math.floor(dateCalc / 31536000000)
+        let numMonths = Math.floor(((dateCalc / 31536000000) - numYear) * 12)
+        let numDays = Math.floor(((((dateCalc / 31536000000) - numYear) * 12) - numMonths) * 30)
+        console.log(numYear );
+        console.log(numMonths );
+        console.log(numDays );
+        // console.log('age gap', );
+        
+    
+        // let years = today.getFullYear() - birth.getFullYear();
+        // let months = today.getMonth() - birth.getMonth();
+        // let days = today.getDate() - birth.getDate();
+        // ;
+    
+        // Adjust for negative days or months
+        // if (numDays < 0) {
+        //     numMonths--;
+        //     const previousMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+        //     numDays += previousMonth;
+        // }
+    
+        // if (numMonths < 0) {
+        //     numYear--;
+        //     numMonths += 12;
+        // }
+
+        return { numYear, numMonths, numDays };
+        // console.log(days)
+    }
+     
+    
     
     const age = calculateAge(birthDate);
 
     // Updating the results in the DOM
-    dayResult.textContent = age.days;
-    monthResult.textContent = age.months;
-    yearResult.textContent = age.years;
+    dayResult.textContent = age.numDays;
+    monthResult.textContent = age.numMonths;
+    yearResult.textContent = age.numYear;
 });

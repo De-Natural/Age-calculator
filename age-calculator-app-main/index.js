@@ -28,25 +28,6 @@ btn.addEventListener('click', () => {
         console.log(numYear );
         console.log(numMonths );
         console.log(numDays );
-        // console.log('age gap', );
-        
-    
-        // let years = today.getFullYear() - birth.getFullYear();
-        // let months = today.getMonth() - birth.getMonth();
-        // let days = today.getDate() - birth.getDate();
-        // ;
-    
-        // Adjust for negative days or months
-        // if (numDays < 0) {
-        //     numMonths--;
-        //     const previousMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate())
-        //     numDays += previousMonth;
-        // }
-    
-        // if (numMonths < 0) {
-        //     numYear--;
-        //     numMonths += 12;
-        // }
 
         return { numYear, numMonths, numDays };
         // console.log(days)

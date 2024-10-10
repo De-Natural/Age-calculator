@@ -30,7 +30,6 @@ btn.addEventListener('click', () => {
         console.log(numDays );
 
         return { numYear, numMonths, numDays };
-        // console.log(days)
     }
      
     

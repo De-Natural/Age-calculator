@@ -98,10 +98,13 @@ button{
     button{
         height: 40px;
         width: 40px;
-        top: 100px;
+        top: 50%;
         right: 20px;
     }
     .contain input{
         width: 80px;
+    }
+    .box>p{
+        font-size: 30px;
     }
 }
